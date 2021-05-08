@@ -46,8 +46,42 @@ public class MainActivity extends AppCompatActivity {
             Log.d("berttest","current char:" + temp);
         }
 
+        int[] arr  = new int[9];
+        arr[0]=8;
+        arr[1]=5;
+        arr[2]=6;
+        arr[3]=2;
+        arr[4]=3;
+        arr[5]=9;
+        arr[6]=1;
+        arr[7]=10;
+        arr[8]=4;
+
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<arr.length-1; j++){
+                if(arr[j] > arr[j+1]){
+                    arr = swap(arr,j,j+1);
+                }
+            }
+        }
+        Log.d("berttest","bubblesort");
+        printValues(arr);
 
 
+
+    }
+
+    public static int[] swap(int[] arr ,int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+        return arr;
+    }
+
+    public void printValues(int a[]){
+        for(int i=0; i<a.length; i++){
+            Log.d("berttest", "print values: " + a[i]);
+        }
     }
 
     public static void checkMagazine(List<String> magazine, List<String> note) {
