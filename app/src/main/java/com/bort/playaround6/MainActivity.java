@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +33,19 @@ public class MainActivity extends AppCompatActivity {
             entry.getKey();
             Log.d("berttest", "hashmap key:" + entry.getKey() + " value:" + entry.getValue());
         }
+
+        String string = "felfjelgjeoigreog";
+
+        Set<Character> set = new HashSet<Character>();
+
+        for(int i=0; i<string.length(); i++){
+            set.add(string.charAt(i));
+        }
+
+        for(char temp : set){
+            Log.d("berttest","current char:" + temp);
+        }
+
 
 
     }
@@ -64,4 +79,26 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Yes");
         return;
     }
+
+    public static String twoStrings(String s1, String s2) {
+        Set<Character> set1 = new HashSet<Character>();
+        Set<Character> set2 = new HashSet<Character>();
+
+        for(int i=0; i<s1.length(); i++){
+            set1.add(s1.charAt(i));
+        }
+        for(int i=0; i<s2.length(); i++){
+            set2.add(s2.charAt(i));
+        }
+        for(char temp1:set1){
+            for(char temp2:set2){
+                if(temp1==temp2){
+                    return "YES";
+                }
+            }
+        }
+        return "NO";
+
+    }
+
 }
