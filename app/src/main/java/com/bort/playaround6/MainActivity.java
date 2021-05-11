@@ -18,6 +18,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        BinarySearchTree bst = new BinarySearchTree;
+        bst.insert(5);
+        bst.insert(2);
+        Log.d("berttest", "BST output");
+        bst.inorderTraversal(bst.root);
+
+
+
         Map<String, Integer> map = new HashMap<>();
         map.put("test",0);
         map.put("test1",1);
