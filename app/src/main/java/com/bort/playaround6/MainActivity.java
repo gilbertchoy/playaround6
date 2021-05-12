@@ -18,11 +18,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BinarySearchTree bst = new BinarySearchTree;
-        bst.insert(5);
+        BinarySearchTree bst = new BinarySearchTree();
+        bst.insert(6);
+        bst.insert(4);
+        bst.insert(8);
         bst.insert(2);
+        bst.insert(9);
+        bst.insert(7);
+        bst.insert(5);
+
         Log.d("berttest", "BST output");
         bst.inorderTraversal(bst.root);
+
+        BinarySearchTree.Node deletedNode = bst.deleteNode(bst.root, 4);
+        Log.d("berttest","Binary search tree after deleting node 4:");
+        Log.d("berttest", "deleted node" + deletedNode.data);
+        bst.inorderTraversal(bst.root);
+
+
+        //bst.inorderTraversal(deletedNode);
 
 
 
