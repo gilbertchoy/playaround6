@@ -89,9 +89,70 @@ public class MainActivity extends AppCompatActivity {
         Log.d("berttest","bubblesort");
         printValues(arr);
 
+        int[] arr  = new int[9];
+        arr[0]=8;
+        arr[1]=5;
+        arr[2]=6;
+        arr[3]=2;
+        arr[4]=3;
+        arr[5]=9;
+        arr[6]=1;
+        arr[7]=10;
+        arr[8]=4;
+        mergeSort(arr,0,arr.length-1){
+
+        }
 
 
     }
+
+    public static void mergeSort(int[] arr, int l, int r){
+        if(l<r){
+            int m = (l+r)/2;
+            mergeSort(arr,l,m);
+            mergeSort(arr,m+1,r);
+            merge(arr, l, m, r);
+        }
+    }
+
+    public static void merge(int[] arr, int l, int m, int r){
+        int[] left = new int[m-l+1];
+        int[] right = new int[r-m];
+
+        for(int i=0; i<left.length; i++){
+            left[i] = arr[l+i];
+        }
+        for(int i=0; i<right.length; i++){
+            right[i] = arr[m+i+1];
+        }
+
+        int lc = 0;
+        int rc = 0;
+        int index = l;
+        while(lc<left.length && rc<right.length){
+            if(left[lc]<right[rc]){
+                arr[index] = left[lc];
+                lc++;
+            }
+            else{
+                arr[index] = right[rc];
+                rc++;
+            }
+            index++;
+        }
+        while(lc<left.length){
+            arr[index] = left[lc];
+            lc++;
+            index++;
+        }
+        while(rc<right.length){
+            arr[index] = right[rc];
+            rc++;
+            index++;
+        }
+
+    }
+
 
     public static int[] swap(int[] arr ,int a, int b){
         int temp = arr[a];
